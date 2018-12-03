@@ -1,0 +1,16 @@
+<%= link_to "add new photo",  new_photo_path %> <br>
+
+<% if @photos == [] %>
+    <p>Create new photo</p>
+<% else %>
+    <% @photos.each do |photo| %>
+       <%= photo.title %><br />
+       <%= photo.description %> <br>
+        <%= image_tag(photo.image_url, size: "400x200")%><br>
+        <% if photo.user_id == current_user.id %>
+        	<%= link_to "edit", edit_photo_path(photo.id) %><br />
+			<%= link_to "delete", photo_path(photo.id), method: :delete, data: {confirm: "are you sure&"} %><br /></p>
+        <% end %>
+   <hr>
+    <% end %>
+<% end %>

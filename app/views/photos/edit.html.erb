@@ -1,0 +1,9 @@
+<%= form_for @photo, url: photo_path(@photo.id) do |f| %>
+	<strong>title</strong><br>
+	<%= f.text_field :title %><br />
+	<strong>description</strong><br>
+	<%= f.text_field :description %><br />
+	<p> <strong>photo</strong><br>
+	<%= f.file_field :image %> <br> <br></p>
+	<%= f.submit "Update" %>
+<% end %>
